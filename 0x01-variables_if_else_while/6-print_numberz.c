@@ -4,7 +4,7 @@
 
 /**
  *
- * * main - Print all single digit numbers
+ * * main - Print all single digit numbers using only putchar
  *
  * *
  *
@@ -22,7 +22,9 @@ int main(void)
 
 			for (digit = 0; digit < 10; digit++)
 
-					printf("%i", digit);
+					putchar(digit + '0');
+
+
 
 				putchar('\n');
 
@@ -31,4 +33,3 @@ int main(void)
 					return (0);
 
 }
-
