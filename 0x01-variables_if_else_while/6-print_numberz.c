@@ -1,35 +1,25 @@
-#include <stdio.h>
-
-
+#include<stdio.h>
 
 /**
+ * main - Entry point
  *
- * * main - Print all single digit numbers using only putchar
+ * Description: print 0-9 using putchar
+ *              while using int variable
  *
- * *
- *
- * * Return: Always 0 (Success)
- *
- * */
+ * Return: Always 0 (Success)
+*/
 
 int main(void)
-
 {
+	int digit = 0;
 
-		int digit;
+	while (digit <= 9)
+	{
+		/*convert digit to ASCII representation*/
+		putchar(digit + '0');
+		++digit;
+	}
+	putchar('\n');
 
-
-
-			for (digit = 0; digit < 10; digit++)
-
-					putchar(digit + '0');
-
-
-
-				putchar('\n');
-
-
-
-					return (0);
-
+	return (0);
 }
