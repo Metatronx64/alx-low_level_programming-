@@ -1,35 +1,23 @@
-#include <stdio.h>
-
-
+#include<stdio.h>
 
 /**
+ * main - Entry point
  *
- * * main - Print the alphabet in lowercase letters in reverse
+ * Description: print a-z in reverse
  *
- * *
- *
- * * Return: Always 0 (Success)
- *
- * */
+ * Return: Always 0 (Success)
+*/
 
 int main(void)
-
 {
+	char ch = 'z';
 
-		char letter;
+	while (ch >= 'a')
+	{
+		putchar(ch);
+		--ch;
+	}
+	putchar('\n');
 
-
-
-			for (letter = 'z'; letter >= 'a'; letter--)
-
-					putchar(letter);
-
-
-
-				putchar('\n');
-
-
-
-					return (0);
-
+	return (0);
 }
