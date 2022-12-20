@@ -1,7 +1,7 @@
 #include"main.h"
 
 /**
- * puts2 - prints every character of a string
+ * puts2 - prints every other  character of a string
  *
  * @str: string parameter input
  *
@@ -18,3 +18,4 @@ void puts2(char *str)
 			_putchar(str[i]);
 	}
 	_putchar('\n');
+}
