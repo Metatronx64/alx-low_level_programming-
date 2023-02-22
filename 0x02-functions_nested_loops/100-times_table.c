@@ -1,4 +1,5 @@
 #include"main.h"
+
 /**
  * print_times_table - prints time table of n
  *
@@ -37,3 +38,4 @@ void print_times_table(int n)
 			_putchar('\n');
 		}
 	}
+}
