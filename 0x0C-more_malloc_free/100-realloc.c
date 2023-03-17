@@ -1,48 +1,33 @@
-#include <stdlib.h>
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size) {
+    void *new_ptr;
 
-/**
- * _realloc - reallocate a memory block using malloc and free
- *
- * @ptr: pointer to previous memory
- * @old_size: old memory array size
- * @new_size: new memory array size
- *
- * Return: pointer to new memory
- *         NULL if it fails
-*/
+    /* If new size is zero, free the memory block and return NULL */
+    if (new_size == 0) {
+        free(ptr);
+        return NULL;
+    }
 
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
-{
-	char *new_ptr, *temp_ptr;
-	unsigned int i;
-	// If New size is equal to old size do nothing and return the original pointer  
-	if (new_size == old_size)
-		return (ptr);
-	//if pointer is NULl allocate a new memory block to pointer 
-	if (ptr == NULL)
-	{
-		new_ptr = malloc(new_size);
-		if (new_ptr == NULL)
-			return (NULL);
-		free(ptr);
-		return (new_ptr);
-	}
+    /* If pointer is NULL, allocate a new block of new_size bytes */
+    if (ptr == NULL) {
+        return malloc(new_size);
+    }
 
-	if (new_size == 0 && ptr != NULL)
-	{
-		free(ptr);
-		return (NULL);
-	}
+    /* If new size is equal to old size, do nothing and return the original pointer */
+    if (new_size == old_size) {
+        return ptr;
+    }
 
-	new_ptr = malloc(new_size);
-	if (new_ptr == NULL)
-		return (NULL);
+    /* Allocate a new block of new_size bytes */
+    new_ptr = malloc(new_size);
 
-	temp_ptr = ptr;
+    /* Copy the contents from the original block to the new block */
+    if (new_ptr != NULL) {
+        memcpy(new_ptr, ptr, old_size < new_size ? old_size : new_size);
 
-	for (i = 0; i < old_size; i++)
-		new_ptr[i] = temp_ptr[i];
+        /* Free the original block */
+        free(ptr);
+    }
 
-	free(ptr);
-	return (new_ptr);
+    return new_ptr;
 }
+
