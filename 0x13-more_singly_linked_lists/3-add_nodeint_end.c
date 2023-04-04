@@ -8,6 +8,7 @@
  * n- value to be added to the new node.
  *
  * Return: the address of the new element, or NULL if it failed.
+ *
  */
 
 listint_t *add_nodeint_end(listint_t **head, const int n)
@@ -30,14 +31,14 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
         return (new_node);
     }
 
-    /* Go through  the list until the last node is reached */
+    /*Iterate through  the list until the last node is reached */
     temp = *head;
     while (temp->next != NULL)
     {
         temp = temp->next;
     }
 
-    /* Set the new node as the next node after the last node */
+    /* Set the new node as the next node after  the last node */
     temp->next = new_node;
 
     return (new_node);
