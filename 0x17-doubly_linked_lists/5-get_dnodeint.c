@@ -1,11 +1,11 @@
 #include "lists.h"
 
 /**
- * get_dnodeint_at_index - Get the node at a specific index in a doubly linked list
- * @head: Pointer to the head of the doubly linked list
- * @index: Index of the node to retrieve
+ * get_dnodeint_at_index - Gets the node at a given index in a doubly linked list.
+ * @head: The head of the doubly linked list.
+ * @index: The index to search from.
  *
- * Return: Pointer to the node at the given index, or NULL if it doesn't exist
+ * Return: The node at the given index, or NULL if not found.
  */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
@@ -18,11 +18,10 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 
 	while (head != NULL)
 	{
-		if (index == count)
+		if (count == index)
 		{
 			return (head);
 		}
-
 		head = head->next;
 		count++;
 	}
